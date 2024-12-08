@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IE Bank API User Stories and Tests</title>
+</head>
+<body>
+    <h1>IE Bank API: User Stories and Tests</h1>
+
+    <h2>User Stories</h2>
+
+    <h3>User Story 1: User Registration</h3>
+    <p><strong>As a new user,</strong></p>
+    <p>I want to register an account with a username, password, email, and date of birth,</p>
+    <p>So that I can access the application.</p>
+    <p><strong>Acceptance Criteria:</strong></p>
+    <ul>
+        <li>The API should accept valid registration details and return a 201 status code.</li>
+        <li>The API should respond with the newly created user’s username.</li>
+    </ul>
+
+    <h3>User Story 2: User Login</h3>
+    <p><strong>As a registered user,</strong></p>
+    <p>I want to log in using my credentials,</p>
+    <p>So that I can access my account securely.</p>
+    <p><strong>Acceptance Criteria:</strong></p>
+    <ul>
+        <li>The API should accept valid credentials and return a 200 status code.</li>
+        <li>The API should respond with a JWT token.</li>
+    </ul>
+
+    <h3>User Story 3: Account Management</h3>
+    <p><strong>As a logged-in user,</strong></p>
+    <p>I want to view my accounts and transfer money between them,</p>
+    <p>So that I can manage my finances efficiently.</p>
+    <p><strong>Acceptance Criteria:</strong></p>
+    <ul>
+        <li>The API should allow users to fetch their accounts with a 200 status code.</li>
+        <li>The API should allow transfers between accounts and return a success message with a 200 status code.</li>
+    </ul>
+
+    <h2>Test Cases</h2>
+
+    <h3>Test Registration (<code>test_register</code>)</h3>
+    <ul>
+        <li>Validate that the <code>/register</code> endpoint accepts valid user data.</li>
+        <li>Ensure the test fails if the response does not include the username or return a 201 status code.</li>
+    </ul>
+
+    <h3>Test Login (<code>test_login</code>)</h3>
+    <ul>
+        <li>Validate that the <code>/login</code> endpoint accepts valid credentials.</li>
+        <li>Ensure the test fails if the response does not return a token or return a 200 status code.</li>
+    </ul>
+
+    <h3>Test Account Management (<code>test_get_accounts</code> and <code>test_transfer_money</code>)</h3>
+    <ul>
+        <li>Validate that the <code>/accounts</code> endpoint retrieves accounts for authenticated users.</li>
+        <li>Ensure the test fails if the response does not return the account details or a 200 status code.</li>
+        <li>Validate that the <code>/transactions</code> endpoint allows transfers between accounts.</li>
+    </ul>
+
+    <h2>Testing Tools</h2>
+    <p>Tests can be executed using <strong>pytest</strong> and <strong>Postman</strong>.</p>
+    <p>To run the Postman tests from the CLI, use the following command:</p>
+    <pre><code>newman run "tests/postman/IE Bank API Tests.postman_collection.json"</code></pre>
+</body>
+</html>
