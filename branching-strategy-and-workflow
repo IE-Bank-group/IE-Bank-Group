@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Workflow Overview</title>
+</head>
+<body>
+    <h1>Branching Strategy</h1>
+    <p>
+        Short-lived feature branches were named after the feature being developed, such as <strong>JWT-Token</strong>, <strong>User model creation</strong>, <strong>User authentication</strong>, and <strong>admin authentication</strong>.
+    </p>
+    <p>
+        After each feature was developed and tested, it was merged into the <strong>PROD branch</strong> via a pull request requiring approval from at least one team member. This triggered the deployment of the <strong>Development environment</strong>. 
+    </p>
+    <p>
+        The <strong>main branch</strong> was protected until all features in the PROD branch were tested to prevent bugs or unauthorized changes. Pushes to the <strong>main branch</strong> triggered deployment of the <strong>Development</strong>, <strong>UAT</strong>, and <strong>Production environments</strong>.
+    </p>
+
+    <h1>Workflow Build Steps</h1>
+    <p>
+        The Continuous Integration (CI) workflow for the backend of the <strong>IE Bank application</strong> involves the following steps:
+    </p>
+    <ol>
+        <li>
+            Check out the repository's code to ensure the latest updates are available for the build process.
+        </li>
+        <li>
+            Set up Python 3.11 using GitHub's <code>setup-python</code> action and upgrade pip to the latest version.
+        </li>
+        <li>
+            Install dependencies from the <code>requirements.txt</code> file to prepare the application for testing and deployment.
+        </li>
+        <li>
+            Perform linting using <code>flake8</code> to identify syntax errors, enforce coding standards, and assess code complexity.
+        </li>
+        <li>
+            Execute unit tests with <code>pytest</code>, including code coverage, to validate the application's functionality.
+        </li>
+        <li>
+            Upload build artifacts for use in subsequent deployment steps.
+        </li>
+        <li>
+            Trigger deployment jobs based on the branch or event type:
+            <ul>
+                <li>
+                    Securely fetch credentials from Azure Key Vault for deployments to the <strong>Development</strong>, <strong>UAT</strong>, and <strong>Production environments</strong>.
+                </li>
+                <li>
+                    Deploy the application to the respective Azure Web Apps or containers.
+                </li>
+                <li>
+                    For Production, build and push a Docker image to Azure Container Registry (ACR), ensuring a scalable and consistent live environment.
+                </li>
+            </ul>
+        </li>
+    </ol>
+
+    <p>
+        This workflow enables seamless integration, testing, and deployment, ensuring code quality and stability across environments.
+    </p>
+</body>
+</html>
