@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Hardening Strategy Design Document</title>
+</head>
+<body>
+    <h1>GitHub Hardening Strategy</h1>
+    <p>
+        One of the key features we implemented is <strong>Secret Scanning</strong>, a feature that automatically scans our repositories for sensitive information such as API keys, passwords, and tokens that may accidentally be included in the codebase. This tool acts as our first line of defense to ensure no secrets or confidential data are pushed into the repository. It helps us stay vigilant and immediately take action if any sensitive information is detected, thus minimizing the risk of exposure.
+    </p>
+    <p>
+        Furthermore, we have also enabled <strong>Push Protection</strong>, which is an additional safeguard to prevent any secret information from being pushed to the repositories by contributors. This feature scans each commit before it’s pushed to the repository. If a secret is detected, the push is blocked, and an alert is generated to notify the security team. This is critical in reducing human errors and ensuring that we don’t end up committing secrets unknowingly. It adds another layer of security on top of Secret Scanning and serves as a proactive approach to secure our codebase.
+    </p>
+    <p>
+        Another important component of our GitHub hardening strategy is the implementation of <strong>CodeQL</strong> for semantic code analysis. CodeQL is an automatic code scanning tool that uses advanced algorithms to analyze the code logic and identify potential security flaws and vulnerabilities. Instead of just searching for patterns, CodeQL dives deeper into the logic of our frontend (Vue.js) and backend (Python) codebases to detect complex vulnerabilities. By integrating CodeQL into our workflow, we can identify issues early on, reduce risks, and maintain high code quality.
+    </p>
+    <p>
+        To ensure that our code follows best practices and remains aligned with the latest security standards, we’ve also integrated <strong>OSSF Scorecard</strong> into our GitHub workflows. The Scorecard is a tool that evaluates the security posture of our repositories based on a set of predefined best practices. It helps us assess areas such as vulnerability management, dependency tracking, code quality, and much more. The results from the Scorecard give us valuable insights into where we need to improve and how we can fix any security gaps.
+    </p>
+    <p>
+        In terms of dependency management, we’ve turned to <strong>Dependabot</strong>, which automatically checks for outdated or vulnerable dependencies in our repositories. When new versions of dependencies are available, Dependabot generates pull requests that update them to their latest, most secure versions. This is particularly useful for keeping track of third-party libraries and ensuring that we’re always using the most secure and up-to-date versions available.
+    </p>
+    <p>
+        Moreover, we also use <strong>Dependency Reviews</strong> as part of our continuous security practices. This feature allows us to review and understand the changes made to the dependencies whenever a new one is introduced or an existing one is updated. By providing detailed visibility into the changes in dependencies, Dependency Reviews help us identify potential security risks that could be introduced by these updates. This feature is part of our broader effort to manage our dependencies securely and avoid introducing vulnerabilities into our codebase.
+    </p>
+    <p>
+        Another critical security feature we implemented is the <strong>CODEOWNERS</strong> file, which is used to manage code changes across the repositories. The CODEOWNERS file designates individuals as responsible for different parts of the codebase. We gave our infrastructure (Anna) developer full access to the infrastructure repository, our full-stack developers (Fynn and Juan) full access to the front-end and back-end repositories. This is important as it also connects to our branching strategy, as the only individuals who can review and accept pull requests to the main branch would be the OWNERS.
+    </p>
+    <p>
+        In summary, by implementing these measures, we are taking a proactive and comprehensive approach to securing our GitHub environment. From Secret Scanning and Push Protection to CodeQL analysis, OSSF Scorecard, Dependabot, Dependency Reviews, and CODEOWNERS, our strategy covers all essential aspects of repository security. This approach not only helps us prevent unauthorized access but also ensures that our code is developed following industry-leading security practices, reducing the risk of vulnerabilities and accidental leaks of sensitive information. Through these combined efforts, we aim to create a robust, secure, and sustainable development environment for our team.
+    </p>
+</body>
+</html>
