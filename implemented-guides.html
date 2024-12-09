@@ -1,1 +1,50 @@
-//implemented guides
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Framework Implementation</title>
+</head>
+<body>
+    <h1>Security Framework Implementation</h1>
+
+    <p>To secure our workloads and make sure everything is safe from the start, we used the OpenSSF and SAFECode frameworks to guide our security practices. These frameworks gave us a clear structure to address security across all areas of our application—from the code we write to the cloud infrastructure, database, and deployment processes.</p>
+
+    <h2>Open SSF Framework Principles</h2>
+
+    <h3>Enable Multi-Factor Authentication (MFA)</h3>
+    <p>We wanted to make sure no unauthorized person could access our systems, so we made MFA mandatory for everyone on the team—developers, architects, and cloud admins. This added an extra layer of security for our GitHub accounts and other important services.</p>
+
+    <h3>Monitor Known Vulnerabilities in Direct and Indirect Dependencies</h3>
+    <p>To keep our application secure, we set up automated monitoring for known vulnerabilities in our dependencies using Dependabot. This tool regularly checks our code for outdated or vulnerable libraries and automatically creates pull requests to update them. This was especially important for the third-party libraries we used in both the frontend, backend, and our infrastructure, ensuring they were always up-to-date and secure.</p>
+
+    <h3>Enable Secret Scanning and Push Protection</h3>
+    <p>We also turned on GitHub's Secret Scanning and Push Protection. These features help us catch sensitive information—like API keys, passwords, and tokens—before they get pushed into our repositories. Secret Scanning alerts us if any secrets are found in the code, and Push Protection stops any commits with secrets from being pushed, making it much harder for secrets to accidentally slip through.</p>
+
+    <h3>Review Before Accepting Changes</h3>
+    <p>We made sure that no code went live without being checked first. Every change must be reviewed and approved by designated code owners before being merged into the main branch. This policy applied to all of our repositories, ensuring that any changes—whether related to the frontend, backend, or infrastructure—were secure and well-vetted before being included.</p>
+
+    <h3>Implement OSSF Scorecards and Improve the Score</h3>
+    <p>To see how well our repositories were following security best practices, we added the OSSF Scorecard to our GitHub workflows. This tool evaluates our repositories based on key security metrics—like how we manage vulnerabilities, the quality of our code, and compliance with licensing standards. We made it a goal to improve our score by fixing vulnerabilities and continuously improving our security practices.</p>
+
+    <h2>SAFECode Framework Practices</h2>
+
+    <h3>Automated and Manual Testing</h3>
+    <p>We followed SAFECode’s guidance by integrating both automated and manual testing into our development process. Automated tests were part of our CI/CD pipeline, using tools like pytest for the backend. Manual testing was done periodically to ensure that critical components were secure and working properly. This helped us identify and address security flaws early on in the development process.</p>
+
+    <h3>Application Security Control Definition</h3>
+    <p>We defined specific security controls for our application, as recommended by SAFECode. For example, all sensitive data—like passwords, secrets, and API tokens—was encrypted both in transit and at rest. We also set up strict access control policies for different environments, so only authorized users could access sensitive production secrets and resources.</p>
+
+    <h3>Standardize Identity and Access Management</h3>
+    <p>To keep our code and cloud infrastructure secure, we standardized how we manage identities and access. We used role-based access control (RBAC) with Azure Active Directory and GitHub’s CODEOWNERS file to define roles for different team members. This made sure that access to sensitive information was restricted only to those who needed it, and that security policies were consistent across the board.</p>
+
+    <h3>Monitor and Audit for Security Risks</h3>
+    <p>We set up continuous monitoring and auditing systems to stay on top of potential security risks. For example, we used GitHub CodeQL for static code analysis to catch vulnerabilities early and Azure Monitor to keep track of our cloud resources. This helped us quickly spot any issues and respond before they could become real problems.</p>
+
+    <h3>Proper Error Handling and Logging</h3>
+    <p>As per SAFECode’s best practices, we made sure to implement strong error handling and logging mechanisms. We used Azure Application Insights and Flask’s logging capabilities to capture errors and performance metrics for both the frontend and backend. These logs were securely stored and regularly reviewed, giving us real-time visibility into potential security incidents.</p>
+
+    <p>By following these frameworks, we created a secure environment for developing, deploying, and managing our application. With each of these practices in place, we ensured that security was part of every step of the process, from the code we write to how we manage our cloud resources and handle sensitive information.</p>
+
+</body>
+</html>
