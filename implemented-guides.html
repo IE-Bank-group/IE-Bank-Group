@@ -33,7 +33,7 @@
     <p>We followed SAFECode’s guidance by integrating both automated and manual testing into our development process. Automated tests were part of our CI/CD pipeline, using tools like pytest for the backend. Manual testing was done periodically to ensure that critical components were secure and working properly. This helped us identify and address security flaws early on in the development process.</p>
 
     <h3>Application Security Control Definition</h3>
-    <p>We defined specific security controls for our application, as recommended by SAFECode. For example, all sensitive data—like passwords, secrets, and API tokens—was encrypted both in transit and at rest. We also set up strict access control policies for different environments, so only authorized users could access sensitive production secrets and resources.</p>
+    <p>We defined specific security controls for our application, following the recommendations from SAFECode. For instance, all sensitive data—such as passwords, secrets, and API tokens—was securely stored in <strong>Azure Key Vault</strong> and encrypted both in transit and at rest. Azure Key Vault helps ensure that our secrets are securely managed and easily accessible by authorized services only. Additionally, we implemented strict access control policies using Azure Key Vault's built-in role-based access control (RBAC), ensuring that only authorized users and applications could access production secrets and resources across different environments. This approach protects our application from unauthorized access and potential data breaches.</p>
 
     <h3>Standardize Identity and Access Management</h3>
     <p>To keep our code and cloud infrastructure secure, we standardized how we manage identities and access. We used role-based access control (RBAC) with Azure Active Directory and GitHub’s CODEOWNERS file to define roles for different team members. This made sure that access to sensitive information was restricted only to those who needed it, and that security policies were consistent across the board.</p>
@@ -45,6 +45,6 @@
     <p>As per SAFECode’s best practices, we made sure to implement strong error handling and logging mechanisms. We used Azure Application Insights and Flask’s logging capabilities to capture errors and performance metrics for both the frontend and backend. These logs were securely stored and regularly reviewed, giving us real-time visibility into potential security incidents.</p>
 
     <p>By following these frameworks, we created a secure environment for developing, deploying, and managing our application. With each of these practices in place, we ensured that security was part of every step of the process, from the code we write to how we manage our cloud resources and handle sensitive information.</p>
-
 </body>
 </html>
+
